@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, strong) QuoteTableViewCell *prototypeCell;
+@property (nonatomic, strong) QuoteTableViewCell *prototypeCellRight;
 
 @end
 
@@ -57,8 +58,17 @@
     if (!_prototypeCell) {
         _prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([QuoteTableViewCell class])];
     }
-
+    
     return _prototypeCell;
+}
+
+- (QuoteTableViewCell *)prototypeCellRight
+{
+    if (!_prototypeCellRight) {
+        _prototypeCellRight = [self.tableView dequeueReusableCellWithIdentifier:@"QuoteTableViewCellRight"];
+    }
+    
+    return _prototypeCellRight;
 }
 
 #pragma mark - Configure
@@ -83,7 +93,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QuoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([QuoteTableViewCell class])];
+    NSString *cellname = (indexPath.row&1)?@"QuoteTableViewCell":@"QuoteTableViewCellRight";
+    QuoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellname];
 
     [self configureCell:cell forRowAtIndexPath:indexPath];
 
@@ -100,16 +111,16 @@
 {
     if (IS_IOS8_OR_ABOVE) {
         return UITableViewAutomaticDimension;
+
     }
 
-    //self.prototypeCell.bounds = CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(self.prototypeCell.bounds));
+    QuoteTableViewCell *prototype = (indexPath.row & 1)?self.prototypeCell:self.prototypeCellRight;
+    [self configureCell:prototype forRowAtIndexPath:indexPath];
 
-    [self configureCell:self.prototypeCell forRowAtIndexPath:indexPath];
+    [prototype updateConstraintsIfNeeded];
+    [prototype layoutIfNeeded];
 
-    [self.prototypeCell updateConstraintsIfNeeded];
-    [self.prototypeCell layoutIfNeeded];
-
-    return [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    return [prototype.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 
 }
 

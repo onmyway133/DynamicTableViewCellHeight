@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Zl-IV-a5t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Zl-IV-a5t">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Quotes-->
@@ -26,13 +27,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0k-JW-7eX">
-                                                    <rect key="frame" x="10" y="10" width="142" height="21"/>
+                                                    <rect key="frame" x="20" y="10" width="510" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Quote goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Per-Bb-Nki">
-                                                    <rect key="frame" x="10" y="41" width="580" height="48"/>
+                                                    <rect key="frame" x="20" y="41" width="510" height="48"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -41,15 +42,49 @@
                                             <constraints>
                                                 <constraint firstItem="m0k-JW-7eX" firstAttribute="top" secondItem="6YK-KB-zAp" secondAttribute="top" constant="10" id="5fX-Y3-kJT"/>
                                                 <constraint firstAttribute="bottom" secondItem="Per-Bb-Nki" secondAttribute="bottom" constant="10" id="YHZ-2Q-5Mp"/>
+                                                <constraint firstItem="m0k-JW-7eX" firstAttribute="right" secondItem="6YK-KB-zAp" secondAttribute="right" multiplier="0.85" constant="20" id="bz1-iC-16l"/>
                                                 <constraint firstItem="Per-Bb-Nki" firstAttribute="top" secondItem="m0k-JW-7eX" secondAttribute="bottom" constant="10" id="hyq-Xe-Shd"/>
-                                                <constraint firstItem="Per-Bb-Nki" firstAttribute="leading" secondItem="6YK-KB-zAp" secondAttribute="leading" constant="10" id="pE7-BP-nVh"/>
-                                                <constraint firstItem="m0k-JW-7eX" firstAttribute="leading" secondItem="6YK-KB-zAp" secondAttribute="leading" constant="10" id="v9t-kT-ib9"/>
-                                                <constraint firstAttribute="trailing" secondItem="Per-Bb-Nki" secondAttribute="trailing" constant="10" id="vJE-Pk-xHb"/>
+                                                <constraint firstItem="Per-Bb-Nki" firstAttribute="left" secondItem="6YK-KB-zAp" secondAttribute="left" constant="20" id="pE7-BP-nVh"/>
+                                                <constraint firstItem="m0k-JW-7eX" firstAttribute="left" secondItem="6YK-KB-zAp" secondAttribute="left" constant="20" id="v9t-kT-ib9"/>
+                                                <constraint firstItem="Per-Bb-Nki" firstAttribute="right" secondItem="6YK-KB-zAp" secondAttribute="right" multiplier="0.85" constant="20" id="vJE-Pk-xHb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="numberLabel" destination="m0k-JW-7eX" id="9Yx-zt-6wg"/>
                                             <outlet property="quoteLabel" destination="Per-Bb-Nki" id="4Zd-D8-Kyk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuoteTableViewCellRight" rowHeight="100" id="qsl-nu-AYw" userLabel="QuoteTableViewRight" customClass="QuoteTableViewCell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qsl-nu-AYw" id="cli-H8-q6g">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number goes here" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejp-7s-Pao">
+                                                    <rect key="frame" x="90" y="10" width="490" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Quote goes here" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKy-1d-N7E">
+                                                    <rect key="frame" x="90" y="41" width="490" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ejp-7s-Pao" firstAttribute="top" secondItem="cli-H8-q6g" secondAttribute="top" constant="10" id="4ou-Xs-L1X"/>
+                                                <constraint firstItem="jKy-1d-N7E" firstAttribute="top" secondItem="ejp-7s-Pao" secondAttribute="bottom" constant="10" id="igz-4e-P6k"/>
+                                                <constraint firstItem="ejp-7s-Pao" firstAttribute="right" secondItem="cli-H8-q6g" secondAttribute="right" constant="-20" id="jDq-rW-rDd"/>
+                                                <constraint firstAttribute="bottom" secondItem="jKy-1d-N7E" secondAttribute="bottom" constant="10" id="kOK-OZ-Htj"/>
+                                                <constraint firstItem="ejp-7s-Pao" firstAttribute="leading" secondItem="cli-H8-q6g" secondAttribute="trailing" multiplier="0.15" id="pjy-LU-Pc4"/>
+                                                <constraint firstItem="jKy-1d-N7E" firstAttribute="leading" secondItem="cli-H8-q6g" secondAttribute="trailing" multiplier="0.15" id="uUm-Rq-bEE"/>
+                                                <constraint firstItem="jKy-1d-N7E" firstAttribute="right" secondItem="cli-H8-q6g" secondAttribute="right" constant="-20" id="xJj-f2-YG5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="numberLabel" destination="ejp-7s-Pao" id="rdL-ao-Ph4"/>
+                                            <outlet property="quoteLabel" destination="jKy-1d-N7E" id="fU9-U1-YPG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
